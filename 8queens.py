@@ -5,29 +5,22 @@ Created on Wed Jun 10 18:07:01 2015
 @author: Matthew Vander Hoff
 """
 
-board = [
-    [0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0]
-]
+
+
+board = [[False] * 8 ] * 8
 
 def check(x, y):
     # check row
     for x1 in range(8):
-        if board[y][x1] == 1 : return False
+        if board[y][x1] == True : return False
     # check col
     for y1 in range(8):
-        if board[y1][x] == 1 : return False
+        if board[y1][x] == True : return False
     # check diags
     #for daig in range(8):
         #if board[][] == 1 : return False:
     return True
-    
+
 def drawDiag(x,y):
     diags = []
     for u in range(8):
