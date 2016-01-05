@@ -48,8 +48,25 @@ def challenge3():
     chalhex = bytearray.fromhex(chalstring)
     f = get_freq(chalhex)
     print_freqs(f)
-    # found that space is normally the most apperent charicter!
 
+def xor(barr1, barr2):
+    output = bytearray()
+    if (len(barr1) == len(barr2)):
+        """ one time pad xor """
+        for x in range(len(barr1)):
+            output.append(barr1[x] ^ barr2[x])
+    elif(type(barr2) == type(byetarray())):
+        """ repeating byte arrays xor """
+        for x in range(len(barr1)):
+            output.append(barr1[x] ^ barr2[(x % len(barr2))])
+    elif(type(barr2) == type(0x1)):
+        """ single value xor """
+        for x in range(len(barr1)):
+            output.append(barr1[x] ^ barr2)
+    else:
+        """ ERROR """
+        raise(TypeError("xor takes in either a byet array or an int"))
+    return output
 
 def get_freq(barr):
     length = len(barr)
